@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextLevel English - Powered by AI. Driven by You.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="h-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between; position: relative;">
+            <div style="display: flex; align-items: center; flex: 1;">
+                <div class="logo-container" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+                    <a href="#" class="logo">NextLevel</a>
+                    <span class="tagline">Powered by AI. Driven by You.</span>
+                </div>
+            </div>
+            <nav style="flex: 2; display: flex; align-items: center; justify-content: center;">
+                <ul style="display: flex; align-items: center; justify-content: center; width: 100%;">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#plans">Planos</a></li>
+                    <li><a href="formulario.html">Anamnese</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+            <div class="login-btn-container">
+                <a href="login.html" class="btn btn-secondary" id="login-btn" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border-radius: 50%; background-color: var(--dark-blue); border: 2px solid var(--white);">
+                    <i class="fas fa-user" style="color: var(--white); font-size: 22px;"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Aprenda Inglês de Forma Inteligente</h1>
+        <div class="hero-video-placeholder">
+            Espaço reservado para vídeo de apresentação
+        </div>
+        <p>Nossa plataforma adaptativa usa IA para personalizar seu aprendizado e acelerar seu progresso no idioma inglês.</p>
+        <div class="hero-buttons">
+            <a href="#plans" class="btn btn-primary">Ver Planos</a>
+            <a href="#" class="btn btn-secondary" id="contact-btn">Fale Conosco</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Sobre a NextLevel</h2>
+        </div>
+        <div class="about-content">
+            <p>A NextLevel English é uma plataforma de ensino de inglês inovadora que combina tecnologia de inteligência artificial com metodologias pedagógicas comprovadas. Nossa missão é tornar o aprendizado de inglês acessível, eficiente e personalizado para cada aluno, independentemente do seu nível inicial.</p>
+            <p>Com uma abordagem centrada no aluno, nossa plataforma se adapta ao seu ritmo de aprendizado, identificando pontos fortes e áreas que precisam de mais atenção, garantindo que cada minuto de estudo seja o mais produtivo possível.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features">
+        <div class="section-title">
+            <h2>Nossos Diferenciais</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>IA Adaptativa</h3>
+                <p>Nosso sistema inteligente ajusta o conteúdo e dificuldade das lições com base no seu desempenho, garantindo o aprendizado ideal.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Feedback Instantâneo</h3>
+                <p>Receba correções e sugestões imediatas em exercícios de pronúncia, escrita e compreensão, acelerando seu progresso.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Relatórios de Progresso</h3>
+                <p>Acompanhe seu desenvolvimento com métricas detalhadas e recomendações personalizadas para melhorar cada habilidade.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="section plans" id="plans">
+        <div class="section-title">
+            <h2>Nossos Planos</h2>
+        </div>
+        <div class="plans-grid">
+            <div class="plan-card fade-in">
+                <h3 class="plan-name">Básico</h3>
+                <div class="plan-price">R$49<span>/mês</span></div>
+                <ul class="plan-features">
+                    <li>Acesso a todas as aulas básicas</li>
+                    <li>10 quizzes por mês</li>
+                    <li>Feedback automático</li>
+                    <li>Relatório mensal de progresso</li>
+                    <li>Suporte por e-mail</li>
+                </ul>
+                <a href="#" class="btn btn-secondary">Assinar Agora</a>
+            </div>
+            <div class="plan-card popular fade-in">
+                <h3 class="plan-name">Intermediário</h3>
+                <div class="plan-price">R$79<span>/mês</span></div>
+                <ul class="plan-features">
+                    <li>Todos os benefícios do Básico</li>
+                    <li>Aulas intermediárias avançadas</li>
+                    <li>Quizzes ilimitados</li>
+                    <li>Feedback detalhado</li>
+                    <li>Relatório semanal de progresso</li>
+                    <li>Suporte prioritário</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Assinar Agora</a>
+            </div>
+            <div class="plan-card fade-in">
+                <h3 class="plan-name">Avançado</h3>
+                <div class="plan-price">R$119<span>/mês</span></div>
+                <ul class="plan-features">
+                    <li>Todos os benefícios do Intermediário</li>
+                    <li>Conteúdo avançado e profissional</li>
+                    <li>Aulas particulares mensais</li>
+                    <li>Correção de pronúncia em tempo real</li>
+                    <li>Relatório diário de progresso</li>
+                    <li>Suporte 24/7</li>
+                </ul>
+                <a href="#" class="btn btn-secondary">Assinar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Material Section (Hidden by default) -->
+    <section class="material-container" id="material" style="display: none;">
+        <div class="level-tabs">
+            <div class="level-tab active" data-level="beginner">Iniciante</div>
+            <div class="level-tab" data-level="intermediate">Intermediário</div>
+            <div class="level-tab" data-level="advanced">Avançado</div>
+        </div>
+        
+        <div class="material-content active" id="beginner-content">
+            <div class="material-grid">
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Aula de Inglês">
+                    <div class="material-info">
+                        <h3>Introdução ao Inglês</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 15 min</span>
+                            <span><i class="far fa-file-alt"></i> PDF</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vocabulário Básico">
+                    <div class="material-info">
+                        <h3>Vocabulário Básico</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 20 min</span>
+                            <span><i class="fas fa-video"></i> Vídeo</span>
+                        </div>
+                        <a href="#" class="material-btn">Assistir Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gramática Essencial">
+                    <div class="material-info">
+                        <h3>Gramática Essencial</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 25 min</span>
+                            <span><i class="far fa-file-alt"></i> PDF</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="material-content" id="intermediate-content">
+            <div class="material-grid">
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Conversação Intermediária">
+                    <div class="material-info">
+                        <h3>Conversação Intermediária</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 30 min</span>
+                            <span><i class="fas fa-video"></i> Vídeo</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-17a1c1e8f20e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gramática Intermediária">
+                    <div class="material-info">
+                        <h3>Gramática Intermediária</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 35 min</span>
+                            <span><i class="far fa-file-alt"></i> PDF</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vocabulário Intermediário">
+                    <div class="material-info">
+                        <h3>Vocabulário Intermediário</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 40 min</span>
+                            <span><i class="fas fa-video"></i> Vídeo</span>
+                        </div>
+                        <a href="#" class="material-btn">Assistir Aula</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="material-content" id="advanced-content">
+            <div class="material-grid">
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-17a1c1e8f20e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Conversação Avançada">
+                    <div class="material-info">
+                        <h3>Conversação Avançada</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 45 min</span>
+                            <span><i class="fas fa-video"></i> Vídeo</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-17a1c1e8f20e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gramática Avançada">
+                    <div class="material-info">
+                        <h3>Gramática Avançada</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 50 min</span>
+                            <span><i class="far fa-file-alt"></i> PDF</span>
+                        </div>
+                        <a href="#" class="material-btn">Acessar Aula</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-17a1c1e8f20e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vocabulário Avançado">
+                    <div class="material-info">
+                        <h3>Vocabulário Avançado</h3>
+                        <div class="material-meta">
+                            <span><i class="far fa-clock"></i> 55 min</span>
+                            <span><i class="fas fa-video"></i> Vídeo</span>
+                        </div>
+                        <a href="#" class="material-btn">Assistir Aula</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section (Hidden by default) -->
+    <section class="quiz-container" id="quiz" style="display: none;">
+        <div class="quiz-header">
+            <h2>Teste seu Conhecimento</h2>
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" style="width: 0%;"></div>
+            </div>
+        </div>
+        <div class="quiz-content">
+            <!-- Questions will be injected here by JavaScript -->
+        </div>
+        <div class="quiz-navigation">
+            <a href="#" class="btn btn-secondary" id="prev-btn" style="display: none;">Anterior</a>
+            <a href="#" class="btn btn-secondary" id="next-btn">Próximo</a>
+        </div>
+        <div class="quiz-results">
+            <h2>Resultados do Quiz</h2>
+            <div class="quiz-score"></div>
+            <div class="quiz-feedback"></div>
+            <a href="#" class="btn btn-primary" id="retry-btn">Tentar Novamente</a>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Fale Conosco</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal (Simplified) -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-login-modal">&times;</span>
+            <h2>Login</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+    <!-- Chatbot-->
+      <div class="container-chatbot">
+            <div id="janela-chat" class="janela-chat hidden">
+                <div class="header-chat"> 
+                    <div class="header-chat-titulo"> 
+                        <h3>Fale com Stephane</h3> 
+                        <select id="seletor-ai" class="seletor-ai"> 
+                            <option value="gemini">Gemini (Padrão)</option> 
+                            <option value="claude" disabled>Claude (Em breve)</option>
+                        </select>
+                    </div>
+                    <button id="btn-fechar-chat">&times;</button>
+                </div>
+                <div id="corpo-chat" class="corpo-chat">
+                    <div class="mensagem-bot">
+                        <span>
+                            Olá! 👋🏾 Eu sou Stephane, sua assistente da NextLevel. Como posso ajudar você hoje?
+                        </span>        
+                    </div>
+                </div>
+                <div class="rodape-chat">
+                    <input type="text" id="input-chat" placeholder="Fale comigo...">
+                    <button id="btn-enviar-chat">
+                        <ion-icon name="send-outline"></ion-icon>
+                    </button>
+                </div>    
+            </div>
+            <button id="btn-abrir-chat" class="btn-abrir-chat">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+            </button>
+            </div>
+
+<script src="script.js">    </script>
+</body>
+</html>

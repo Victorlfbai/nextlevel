@@ -1,0 +1,15 @@
+  .gradient-bg {
+        background: linear-gradient(135deg, #0004ff 0%, #d1d1d1 100%);
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 4, 255, 0.3);
+        }
+        .custom-radio:checked {
+            background-color: #0004ff;
+        }
+        .custom-checkbox:checked {
+            background-color: #0004ff;
+            border-color: #0004ff;
+        }
+        

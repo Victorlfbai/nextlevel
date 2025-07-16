@@ -1,0 +1,17 @@
+  .gradient-bg {
+            background: linear-gradient(135deg, #6b21a8 0%, #000000 100%);
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(107, 33, 168, 0.3);
+        }
+        .custom-radio:checked {
+            background-color: #6b21a8;
+        }
+        .custom-checkbox:checked {
+            background-color: #6b21a8;
+            border-color: #6b21a8;
+        }
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="%236b21a8"/></svg>'), auto;
+        }

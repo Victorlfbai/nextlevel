@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil.IA - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="s-login.css">
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center p-4">
+    <!-- Botão Voltar para Home -->
+    <a href="index.html" class="voltar-btn fixed top-6 left-6 z-50 flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#1e40af] transition duration-300">
+        <i class="fas fa-arrow-left"></i>
+        Voltar
+    </a>
+    <div class="w-full max-w-md">
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+                <span class="gradient-text">
+                    <span class="text-white">NextLevel</span>
+                </span>
+            </h1>
+            <p class="text-[#60a5fa] font-medium" style="font-family: 'Orbitron', sans-serif;">powered by ai, driven by you</p>
+        </div>
+
+        <div class="login-container bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-[#60a5fa] p-4 rounded-full">
+                        <i class="fas fa-user-lock text-[#232946] text-3xl"></i>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-center text-[#232946] mb-6">Acesse sua conta</h2>
+                <form>
+                    <div class="mb-5">
+                        <label for="email" class="block text-[#232946] font-medium mb-2">E-mail</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                placeholder="seu@email.com"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="password" class="block text-[#232946] font-medium mb-2">Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="login-input w-full pl-10 pr-10 py-3 transition duration-300" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" id="togglePassword">
+                                <i class="fas fa-eye text-[#2563eb] hover:text-[#3b4cca] cursor-pointer"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="remember" 
+                                class="h-4 w-4 text-[#2563eb] focus:ring-[#60a5fa] border-[#60a5fa] rounded"
+                            >
+                            <label for="remember" class="ml-2 block text-sm text-[#232946]">Lembrar-me</label>
+                        </div>
+                        <a href="#" class="text-sm text-[#2563eb] hover:text-[#3b4cca] font-medium">Esqueceu a senha?</a>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="login-btn w-full font-bold py-3 px-4 transition duration-300 btn-hover"
+                    >
+                        Entrar
+                    </button>
+                </form>
+            </div>
+            <div class="bg-[#3b4cca] px-8 py-4 text-center">
+                <p class="text-[#232946] text-sm">
+                    Não tem uma conta? 
+                    <a href="#" class="text-[#2563eb] font-medium hover:text-[#3b4cca]">Cadastre-se</a>
+                </p>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-[#60a5fa] text-sm">
+                © 2023 Brasil.IA - Todos os direitos reservados
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Simple form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                e.preventDefault();
+                alert('Por favor, preencha todos os campos!');
+            }
+        });
+
+        // Toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>

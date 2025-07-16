@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamnese - NextLevel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="f-style.css">
+</head>
+<body class="min-h-screen gradient-bg text-white">
+    <!-- Botão Voltar no canto superior esquerdo -->
+    <a href="index.html" class="fixed top-4 left-4 z-50 px-3 py-1 text-xs font-semibold rounded-full bg-[#232946] text-[#60a5fa] border border-[#60a5fa] shadow hover:bg-[#3b4cca] hover:text-white transition duration-200" style="font-family: 'Orbitron', sans-serif;">
+        <i class="fas fa-arrow-left mr-1"></i> Voltar
+    </a>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="flex flex-col items-center mb-10">
+            <div class="flex items-center mb-4">
+                <h1 class="text-4xl font-bold" style="font-family: 'Orbitron', sans-serif">
+                    <span class="text-[#0a2342]">NextLevel</span>
+                </h1>
+            </div>
+            <div class="mb-2">
+                <span class="block text-base font-medium text-[#b3b8d6]" style="font-family: 'Orbitron', sans-serif; margin-top: 4px;">powered by ai, driven by you</span>
+            </div>
+            <h2 class="text-2xl font-semibold text-center mb-2" style="font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-shadow: 0 0 8px rgba(58, 29, 98, 0.7); color: #b3b8d6;">FORMULÁRIO DE ANAMNESE</h2>
+            <p class="text-[#b3b8d6] text-center max-w-2xl">
+                Preencha este questionário completo para nos ajudar a entender melhor sua saúde e histórico familiar.
+                Todas as informações serão mantidas em sigilo.
+            </p>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="mb-8 flex flex-col items-center">
+            <div class="flex justify-between items-center mb-2 w-full max-w-4xl">
+                <span class="text-sm font-medium text-[#b3b8d6]">Progresso: 0%</span>
+                <span class="text-sm font-medium text-[#b3b8d6]">0/20 perguntas</span>
+            </div>
+            <div class="w-full max-w-4xl bg-[#232946] rounded-full h-2.5">
+                <div class="bg-[#7c3aed] h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="bg-[#3b4cca] bg-opacity-90 rounded-xl p-6 shadow-xl backdrop-blur-sm max-w-4xl mx-auto">
+            <form id="anamnesisForm" class="space-y-8">
+                <!-- Section 1: Personal Data -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-user-circle mr-2 text-[#60a5fa]"></i> Dados Pessoais
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Question 1 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">1. Nome Completo</label>
+                            <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" required>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">2. Data de Nascimento</label>
+                            <input type="date" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" required>
+                        </div>
+                        
+                        <!-- Question 3 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">3. Sexo</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="sex" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Masculino</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="sex" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Feminino</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="sex" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Outro</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 4 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">4. CPF</label>
+                            <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" placeholder="000.000.000-00" required>
+                        </div>
+                        
+                        <!-- Question 5 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">5. Telefone</label>
+                            <input type="tel" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" placeholder="(00) 00000-0000" required>
+                        </div>
+                        
+                        <!-- Question 6 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">6. E-mail</label>
+                            <input type="email" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" required>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">7. Escolaridade</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" required>
+                                <option value="">Selecione...</option>
+                                <option value="fundamental">Ensino Fundamental</option>
+                                <option value="medio">Ensino Médio</option>
+                                <option value="superior">Ensino Superior</option>
+                                <option value="pos">Pós-graduação</option>
+                                <option value="mestrado">Mestrado</option>
+                                <option value="doutorado">Doutorado</option>
+                            </select>
+                        </div>
+
+                        <!-- Question 8 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">8. Renda Mensal (aproximada)</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" required>
+                                <option value="">Selecione...</option>
+                                <option value="1">Até R$ 1.500</option>
+                                <option value="2">R$ 1.501 - R$ 3.000</option>
+                                <option value="3">R$ 3.001 - R$ 5.000</option>
+                                <option value="4">R$ 5.001 - R$ 10.000</option>
+                                <option value="5">Acima de R$ 10.000</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Address -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-home mr-2 text-[#60a5fa]"></i> Endereço
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Question 9 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">9. CEP</label>
+                            <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" placeholder="00000-000">
+                        </div>
+                        
+                        <!-- Question 10 -->
+                        <div class="md:col-span-2">
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">10. Endereço Completo</label>
+                            <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                        </div>
+
+                        <!-- Question 11 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">11. Cidade</label>
+                            <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                        </div>
+                        
+                        <!-- Question 12 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">12. Estado</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                                <option value="">Selecione...</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Health -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-heartbeat mr-2 text-[#60a5fa]"></i> Saúde
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Question 9 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">9. Possui algum problema de saúde crônico?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="chronic" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="chronic" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 10 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">10. Faz uso de medicamentos contínuos?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="meds" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="meds" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 11 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">11. Já foi hospitalizado(a) nos últimos 12 meses?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="hospitalized" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="hospitalized" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, qual o motivo?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 12 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">12. Possui alergias?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="allergies" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="allergies" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Lifestyle -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-running mr-2 text-[#60a5fa]"></i> Estilo de Vida
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Question 13 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">13. Pratica atividades físicas regularmente?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="exercise" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="exercise" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais?</label>
+                                <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <!-- Question 14 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">14. Fuma?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="smoke" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="smoke" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quantos cigarros por dia?</label>
+                                <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <!-- Question 15 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">15. Consome bebidas alcoólicas?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="alcohol" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="alcohol" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, com que frequência?</label>
+                                <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <!-- Question 16 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">16. Como avalia sua alimentação?</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                                <option value="">Selecione...</option>
+                                <option value="excellent">Excelente - Muito balanceada</option>
+                                <option value="good">Boa - Balanceada na maior parte do tempo</option>
+                                <option value="regular">Regular - Alguns excessos</option>
+                                <option value="bad">Ruim - Muitos excessos e desequilíbrios</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 5: Family History -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-users mr-2 text-[#60a5fa]"></i> Histórico Familiar
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Question 17 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">17. Parentes com doenças cardiovasculares?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="heart_disease" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="heart_disease" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais e grau de parentesco?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 18 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">18. Parentes com diabetes?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="diabetes" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="diabetes" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, grau de parentesco?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 19 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">19. Parentes com câncer?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="cancer" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="cancer" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais tipos e grau de parentesco?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 20 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">20. Outras doenças hereditárias na família?</label>
+                            <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 6: International Experience and Language Skills -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-globe-americas mr-2 text-[#60a5fa]"></i> Experiência Internacional e Idiomas
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Question 26 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">26. Já morou em outro país?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="lived_abroad" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Sim</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="lived_abroad" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Não</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, qual país e por quanto tempo?</label>
+                                <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="2"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 27 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">27. Quais idiomas você fala?</label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="languages" value="portuguese" class="custom-checkbox h-5 w-5 text-[#60a5fa] rounded" checked>
+                                        <span class="ml-2">Português</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="languages" value="english" class="custom-checkbox h-5 w-5 text-[#60a5fa] rounded">
+                                        <span class="ml-2">Inglês</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="languages" value="spanish" class="custom-checkbox h-5 w-5 text-[#60a5fa] rounded">
+                                        <span class="ml-2">Espanhol</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="languages" value="french" class="custom-checkbox h-5 w-5 text-[#60a5fa] rounded">
+                                        <span class="ml-2">Francês</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" name="languages" value="other" class="custom-checkbox h-5 w-5 text-[#60a5fa] rounded">
+                                        <span class="ml-2">Outro</span>
+                                    </label>
+                                    <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg mt-2 focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" placeholder="Especifique">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 28 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">28. Como avalia seu nível de inglês?</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                                <option value="">Selecione...</option>
+                                <option value="basic">Básico (compreende frases simples)</option>
+                                <option value="intermediate">Intermediário (consegue se comunicar)</option>
+                                <option value="advanced">Avançado (consegue debater temas complexos)</option>
+                                <option value="fluent">Fluente (domínio completo do idioma)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Question 29 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">29. Como avalia seu conhecimento cultural internacional?</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                                <option value="">Selecione...</option>
+                                <option value="basic">Básico (conhece culturas populares)</option>
+                                <option value="intermediate">Intermediário (conhece diferenças culturais importantes)</option>
+                                <option value="advanced">Avançado (entende nuances culturais profundas)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Course Expectations and Technical Knowledge -->
+                <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-[#b3b8d6] mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap mr-2 text-[#60a5fa]"></i> Expectativas e Conhecimentos Técnicos
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Question 21 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">21. Quais são suas expectativas sobre este curso?</label>
+                            <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="3"></textarea>
+                        </div>
+                        
+                        <!-- Question 22 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">22. Possui conhecimento prévio sobre Inteligência Artificial?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ai_knowledge" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Nenhum</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ai_knowledge" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Básico</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ai_knowledge" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Intermediário</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="ai_knowledge" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Avançado</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 23 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">23. Possui conhecimentos de programação?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="programming" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Nenhum</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="programming" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Básico</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="programming" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Intermediário</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="programming" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Avançado</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais linguagens?</label>
+                                <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                            </div>
+                        </div>
+                        
+                        <!-- Question 24 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">24. Como avalia seus conhecimentos sobre computador e internet?</label>
+                            <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                                <option value="">Selecione...</option>
+                                <option value="basic">Básico (saber usar programas simples)</option>
+                                <option value="intermediate">Intermediário (instalar programas, resolver problemas simples)</option>
+                                <option value="advanced">Avançado (configurar sistemas, resolver problemas complexos)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Question 25 -->
+                        <div>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">25. Possui conhecimentos sobre banco de dados?</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="database" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
+                                    <span class="ml-2 text-[#b3b8d6]">Nenhum</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="database" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Básico</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="database" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Intermediário</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="database" class="custom-radio h-5 w-5 text-[#60a5fa]">
+                                    <span class="ml-2 text-[#b3b8d6]">Avançado</span>
+                                </label>
+                            </div>
+                            <div class="mt-2">
+                                <label class="block mb-2 font-medium text-[#b3b8d6]">Se sim, quais sistemas?</label>
+                                <input type="text" class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <!-- Update progress numbers -->
+                <script>
+                    document.querySelector('.flex.justify-between span:last-child').textContent = '29/29 perguntas';
+                </script>
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-10">
+                    <div class="text-sm text-purple-300">
+                        <i class="fas fa-lock mr-1"></i> Suas informações estão seguras conosco
+                    </div>
+                    <div class="flex space-x-4">
+                        <button type="button" class="px-6 py-3 bg-transparent border border-purple-500 text-purple-300 rounded-lg hover:bg-purple-900 hover:bg-opacity-30 transition">
+                            Salvar e continuar depois
+                        </button>
+                        <button type="submit" class="px-6 py-3 bg-[#2563eb] hover:bg-[#1e40af] text-white rounded-lg transition flex items-center">
+                            Enviar Anamnese
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-purple-300 text-sm">
+            <p>© 2023 NextLevel - Todos os direitos reservados</p>
+            <p class="mt-2">Este formulário é protegido pelas leis de privacidade de dados</p>
+        </footer>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('anamnesisForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show fireworks
+            const container = document.querySelector('body');
+            const fireworks = new Fireworks(container, {
+                autoresize: false,
+                hue: {
+                    min: 280,
+                    max: 320
+                },
+                acceleration: 1.05,
+                friction: 0.97,
+                gravity: 1.5,
+                particles: 100,
+                traceLength: 3,
+                explosion: 10
+            });
+            fireworks.start();
+            
+            setTimeout(() => {
+                // Here you would normally send the data to the server
+                alert('Anamnese enviada com sucesso! Obrigado por suas respostas.');
+                
+                // Reset form (in a real app, you might redirect instead)
+                this.reset();
+                
+                // Update progress bar (this would be dynamic in a real multi-step form)
+                document.querySelector('.bg-purple-500').style.width = '100%';
+                document.querySelector('.flex.justify-between span:first-child').textContent = 'Progresso: 100%';
+                document.querySelector('.flex.justify-between span:last-child').textContent = '29/29 perguntas';
+                
+                fireworks.stop();
+            }, 3000);
+        });
+        
+        // Add hover effects to all question cards
+        const questionCards = document.querySelectorAll('.question-card');
+        questionCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 10px 25px rgba(107, 33, 168, 0.3)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
