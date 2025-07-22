@@ -552,14 +552,14 @@
     font-size: 2rem;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    animation: bounce 2s infinite
+    animation: bounce 2s infinite;
 }
 
 
 @keyframes bounce{
-    0%, 20%, 50%, 80%, 100%{transform: translateY(0);}
-    40%{transform: translateY(-15);}
-    60%{transform: translateY(-7);}
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-18px); }
+    60% { transform: translateY(-9px); }
 }
 
 .janela-chat{
@@ -688,7 +688,7 @@
 #input-chat{
     border: none;
     font-size: 1.5rem;
-    color: #f59e0b;
+    color: #6b7280;
     cursor: pointer;
     padding: 0.5rem;
     flex: 1;

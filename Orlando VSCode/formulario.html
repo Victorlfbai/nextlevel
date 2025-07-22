@@ -16,36 +16,31 @@
         <i class="fas fa-arrow-left mr-1"></i> Voltar
     </a>
     <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="flex flex-col items-center mb-10">
-            <div class="flex items-center mb-4">
-                <h1 class="text-4xl font-bold" style="font-family: 'Orbitron', sans-serif">
-                    <span class="text-[#0a2342]">NextLevel</span>
-                </h1>
-            </div>
-            <div class="mb-2">
-                <span class="block text-base font-medium text-[#b3b8d6]" style="font-family: 'Orbitron', sans-serif; margin-top: 4px;">powered by ai, driven by you</span>
-            </div>
-            <h2 class="text-2xl font-semibold text-center mb-2" style="font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-shadow: 0 0 8px rgba(58, 29, 98, 0.7); color: #b3b8d6;">FORMULÁRIO DE ANAMNESE</h2>
-            <p class="text-[#b3b8d6] text-center max-w-2xl">
-                Preencha este questionário completo para nos ajudar a entender melhor sua saúde e histórico familiar.
-                Todas as informações serão mantidas em sigilo.
-            </p>
-        </header>
-
-        <!-- Progress Bar -->
-        <div class="mb-8 flex flex-col items-center">
-            <div class="flex justify-between items-center mb-2 w-full max-w-4xl">
-                <span class="text-sm font-medium text-[#b3b8d6]">Progresso: 0%</span>
-                <span class="text-sm font-medium text-[#b3b8d6]">0/20 perguntas</span>
-            </div>
-            <div class="w-full max-w-4xl bg-[#232946] rounded-full h-2.5">
-                <div class="bg-[#7c3aed] h-2.5 rounded-full" style="width: 0%"></div>
-            </div>
-        </div>
-
+        <!-- Header removido. Caixa do formulário vai para o topo. -->
         <!-- Form Container -->
-        <div class="bg-[#3b4cca] bg-opacity-90 rounded-xl p-6 shadow-xl backdrop-blur-sm max-w-4xl mx-auto">
+        <div class="bg-[#3b4cca] bg-opacity-90 rounded-xl p-6 shadow-xl backdrop-blur-sm max-w-4xl mx-auto mt-0">
+            <!-- Header no topo da caixa -->
+            <div class="mb-4 flex flex-col items-center">
+                <h1 class="text-4xl font-bold text-[#b3b8d6] mb-2" style="font-family: 'Orbitron', sans-serif">
+                    NextLevel
+                </h1>
+                <span class="block text-base font-medium text-[#b3b8d6] mb-2" style="font-family: 'Orbitron', sans-serif; margin-top: 4px;">powered by ai, driven by you</span>
+                <h2 class="text-2xl font-semibold text-center mb-2" style="font-family: 'Orbitron', sans-serif; letter-spacing: 1px; text-shadow: 0 0 8px rgba(58, 29, 98, 0.7); color: #b3b8d6;">FORMULÁRIO DE ANAMNESE</h2>
+                <p class="text-[#b3b8d6] text-center max-w-2xl mb-6">
+                    Preencha este questionário completo para nos ajudar a entender melhor sua saúde e histórico familiar.<br>
+                    Todas as informações serão mantidas em sigilo.
+                </p>
+                <!-- Progress Bar logo abaixo do texto -->
+                <div class="mb-2 w-full">
+                    <div class="flex justify-between items-center mb-2 w-full">
+                        <span class="text-sm font-medium text-[#b3b8d6]">Progresso: 0%</span>
+                        <span class="text-sm font-medium text-[#b3b8d6]">0/20 perguntas</span>
+                    </div>
+                    <div class="w-full bg-[#232946] rounded-full h-2.5">
+                        <div class="bg-[#7c3aed] h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
             <form id="anamnesisForm" class="space-y-8">
                 <!-- Section 1: Personal Data -->
                 <div class="question-card bg-[#232946] bg-opacity-95 p-6 rounded-lg transition-all duration-300">
@@ -203,7 +198,7 @@
                     <div class="space-y-6">
                         <!-- Question 9 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">9. Possui algum problema de saúde crônico?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">13. Possui algum problema de saúde crônico?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="chronic" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -222,7 +217,7 @@
                         
                         <!-- Question 10 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">10. Faz uso de medicamentos contínuos?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">14. Faz uso de medicamentos contínuos?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="meds" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -241,7 +236,7 @@
                         
                         <!-- Question 11 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">11. Já foi hospitalizado(a) nos últimos 12 meses?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">15. Já foi hospitalizado(a) nos últimos 12 meses?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="hospitalized" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -260,7 +255,7 @@
                         
                         <!-- Question 12 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">12. Possui alergias?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">16. Possui alergias?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="allergies" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -288,7 +283,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- Question 13 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">13. Pratica atividades físicas regularmente?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">17. Pratica atividades físicas regularmente?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="exercise" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -307,7 +302,7 @@
                         
                         <!-- Question 14 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">14. Fuma?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">18. Fuma?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="smoke" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -326,7 +321,7 @@
                         
                         <!-- Question 15 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">15. Consome bebidas alcoólicas?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">19. Consome bebidas alcoólicas?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="alcohol" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -345,7 +340,7 @@
                         
                         <!-- Question 16 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">16. Como avalia sua alimentação?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">20. Como avalia sua alimentação?</label>
                             <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
                                 <option value="">Selecione...</option>
                                 <option value="excellent">Excelente - Muito balanceada</option>
@@ -366,7 +361,7 @@
                     <div class="space-y-6">
                         <!-- Question 17 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">17. Parentes com doenças cardiovasculares?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">21. Parentes com doenças cardiovasculares?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="heart_disease" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -385,7 +380,7 @@
                         
                         <!-- Question 18 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">18. Parentes com diabetes?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">22. Parentes com diabetes?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="diabetes" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -404,7 +399,7 @@
                         
                         <!-- Question 19 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">19. Parentes com câncer?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">23. Parentes com câncer?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="cancer" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -423,7 +418,7 @@
                         
                         <!-- Question 20 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">20. Outras doenças hereditárias na família?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">24. Outras doenças hereditárias na família?</label>
                             <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="3"></textarea>
                         </div>
                     </div>
@@ -438,7 +433,7 @@
                     <div class="space-y-6">
                         <!-- Question 26 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">26. Já morou em outro país?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">25. Já morou em outro país?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="lived_abroad" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -457,7 +452,7 @@
                         
                         <!-- Question 27 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">27. Quais idiomas você fala?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">26. Quais idiomas você fala?</label>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="inline-flex items-center">
@@ -495,7 +490,7 @@
                         
                         <!-- Question 28 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">28. Como avalia seu nível de inglês?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">27. Como avalia seu nível de inglês?</label>
                             <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
                                 <option value="">Selecione...</option>
                                 <option value="basic">Básico (compreende frases simples)</option>
@@ -507,7 +502,7 @@
                         
                         <!-- Question 29 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">29. Como avalia seu conhecimento cultural internacional?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">28. Como avalia seu conhecimento cultural internacional?</label>
                             <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
                                 <option value="">Selecione...</option>
                                 <option value="basic">Básico (conhece culturas populares)</option>
@@ -527,13 +522,13 @@
                     <div class="space-y-6">
                         <!-- Question 21 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">21. Quais são suas expectativas sobre este curso?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">29. Quais são suas expectativas sobre este curso?</label>
                             <textarea class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white" rows="3"></textarea>
                         </div>
                         
                         <!-- Question 22 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">22. Possui conhecimento prévio sobre Inteligência Artificial?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">30. Possui conhecimento prévio sobre Inteligência Artificial?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="ai_knowledge" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -556,7 +551,7 @@
                         
                         <!-- Question 23 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">23. Possui conhecimentos de programação?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">31. Possui conhecimentos de programação?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="programming" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>
@@ -583,7 +578,7 @@
                         
                         <!-- Question 24 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">24. Como avalia seus conhecimentos sobre computador e internet?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">32. Como avalia seus conhecimentos sobre computador e internet?</label>
                             <select class="w-full px-4 py-2 bg-[#232946] border border-[#60a5fa] rounded-lg focus:ring-2 focus:ring-[#60a5fa] focus:border-transparent text-white">
                                 <option value="">Selecione...</option>
                                 <option value="basic">Básico (saber usar programas simples)</option>
@@ -594,7 +589,7 @@
                         
                         <!-- Question 25 -->
                         <div>
-                            <label class="block mb-2 font-medium text-[#b3b8d6]">25. Possui conhecimentos sobre banco de dados?</label>
+                            <label class="block mb-2 font-medium text-[#b3b8d6]">33. Possui conhecimentos sobre banco de dados?</label>
                             <div class="flex space-x-4">
                                 <label class="inline-flex items-center">
                                     <input type="radio" name="database" class="custom-radio h-5 w-5 text-[#60a5fa]" checked>

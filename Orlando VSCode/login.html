@@ -88,7 +88,7 @@
             <div class="bg-[#3b4cca] px-8 py-4 text-center">
                 <p class="text-[#232946] text-sm">
                     Não tem uma conta? 
-                    <a href="#" class="text-[#2563eb] font-medium hover:text-[#3b4cca]">Cadastre-se</a>
+                    <a href="cadastro.html" class="text-[#2563eb] font-medium hover:text-[#3b4cca]">Cadastre-se</a>
                 </p>
             </div>
         </div>
@@ -100,6 +100,31 @@
     </div>
 
     <script>
+        // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getFirestore, collection, query, where, doc, updateDoc, onSnapshot, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBQvSCPhhx31Za15h6jO0pd5Z3VnHVtxRk",
+  authDomain: "nextlevelai-83a72.firebaseapp.com",
+  projectId: "nextlevelai-83a72",
+  storageBucket: "nextlevelai-83a72.firebasestorage.app",
+  messagingSenderId: "102654499610",
+  appId: "1:102654499610:web:10eab2aec478044367eaa3",
+  measurementId: "G-XS06KT70EC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
         // Simple form validation
         document.querySelector('form').addEventListener('submit', function(e) {
             const email = document.getElementById('email').value;
