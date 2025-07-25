@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil.IA - Cadastro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="s-login.css">
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center p-4">
+    <!-- Botão Voltar para Login -->
+    <a href="login.html" class="voltar-btn fixed top-6 left-6 z-50 flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#1e40af] transition duration-300">
+        <i class="fas fa-arrow-left"></i>
+        Voltar
+    </a>
+    <div class="w-full max-w-md">
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+                <span class="gradient-text">
+                    <span class="text-white">NextLevel</span>
+                </span>
+            </h1>
+            <p class="text-[#60a5fa] font-medium" style="font-family: 'Orbitron', sans-serif;">powered by ai, driven by you</p>
+        </div>
+
+        <div class="login-container bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-[#60a5fa] p-4 rounded-full">
+                        <i class="fas fa-user-plus text-[#232946] text-3xl"></i>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-center text-[#232946] mb-6">Crie sua conta</h2>
+                <form id="registerForm">
+                    <div class="mb-5">
+                        <label for="nomeCompleto" class="block text-[#232946] font-medium mb-2">Nome Completo</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-user text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="nomeCompleto" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                placeholder="Seu nome completo"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="cpf" class="block text-[#232946] font-medium mb-2">CPF</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-id-card text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="cpf" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                placeholder="000.000.000-00"
+                                maxlength="14"
+                                required
+                                oninput="this.value = this.value.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/(\d{3})\.(\d{3})\.(\d{3})(\d{1,2})/, '$1.$2.$3-$4');"
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="dataNascimento" class="block text-[#232946] font-medium mb-2">Data de Nascimento</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-calendar-alt text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="date" 
+                                id="dataNascimento" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                maxlength="8"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="email" class="block text-[#232946] font-medium mb-2">E-mail</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                placeholder="seu@email.com"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <label for="password" class="block text-[#232946] font-medium mb-2">Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="login-input w-full pl-10 pr-10 py-3 transition duration-300" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" id="togglePassword">
+                                <i class="fas fa-eye text-[#2563eb] hover:text-[#3b4cca] cursor-pointer"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="confirmPassword" class="block text-[#232946] font-medium mb-2">Confirme a Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                class="login-input w-full pl-10 pr-10 py-3 transition duration-300" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" id="toggleConfirmPassword">
+                                <i class="fas fa-eye text-[#2563eb] hover:text-[#3b4cca] cursor-pointer"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="login-btn w-full font-bold py-3 px-4 transition duration-300 btn-hover"
+                        aria-label="Cadastrar nova conta"
+                    >
+                        Cadastrar
+                    </button>
+                </form>
+            </div>
+            <div class="bg-[#3b4cca] px-8 py-4 text-center">
+                <p class="text-[#232946] text-sm">
+                    Já tem uma conta? 
+                    <a href="login.html" class="text-[#2563eb] font-medium hover:text-[#3b4cca]">Entrar</a>
+                </p>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-[#60a5fa] text-sm">
+                © 2023 Brasil.IA - Todos os direitos reservados
+            </p>
+        </div>
+    </div>
+
+    <script>
+        
+    
+// Importações do Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+    import { updateDoc, onSnapshot, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBQvSCPhhx31Za15h6jO0pd5Z3VnHVtxRk",
+  authDomain: "nextlevelai-83a72.firebaseapp.com",
+  projectId: "nextlevelai-83a72",
+  storageBucket: "nextlevelai-83a72.appspot.com",
+  messagingSenderId: "102654499610",
+  appId: "1:102654499610:web:10eab2aec478044367eaa3",
+  measurementId: "G-XS06KT70EC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+// --- Elementos do DOM ---
+const formulario = document.getElementById('registerForm');
+let areaMensagem = document.getElementById('area-mensagem');
+if (!areaMensagem) {
+    areaMensagem = document.createElement('div');
+    areaMensagem.id = 'area-mensagem';
+    areaMensagem.className = 'text-center text-sm my-4';
+    document.querySelector('.login-container .p-8').prepend(areaMensagem);
+}
+formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // Corrigir busca do botão de submit
+    const btnEnviar = formulario.querySelector('button[type="submit"]');
+    btnEnviar.disabled = true;
+    btnEnviar.textContent = 'Aguarde...';
+    areaMensagem.textContent = '';
+    const nomeCompleto = document.getElementById('nomeCompleto').value;
+    const cpf = document.getElementById('cpf').value;
+    const dataNascimento = document.getElementById('dataNascimento').value;
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('password').value;
+    const confirmarSenha = document.getElementById('confirmPassword').value;
+    if (senha !== confirmarSenha) {
+        areaMensagem.textContent = 'As senhas não coincidem!';
+        areaMensagem.className = 'text-center text-red-500 my-4';
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = 'Cadastrar';
+        return;
+    }
+    try {
+        // Passo 1: Criar o usuário no Firebase Authentication
+        const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+        const user = userCredential.user;
+        areaMensagem.textContent = 'Usuário criado! Salvando seus dados...';
+        // Passo 2: Salvar os dados adicionais no Firestore
+        await setDoc(doc(db, "usuarios", user.uid), {
+            nomeCompleto: nomeCompleto,
+            cpf: cpf,
+            dataNascimento: dataNascimento,
+            email: email,
+            status: 'pending',
+            criadoEm: new Date().toISOString(),
+            descritorFacial: null
+        });
+        // Passo 3: Mostrar mensagem de sucesso
+        document.body.innerHTML = `
+        <div class="card-sucesso">
+        <h1>Cadastro Enviado!</h1>
+        <p>Sua conta foi criada com sucesso.</p>
+        <p>Aguarde a aprovação da sua matrícula pela escola para poder fazer o login.</p>
+        </div>
+        `;
+    } catch (error) {
+        console.error("Erro no cadastro: ", error);
+        areaMensagem.textContent = `Erro: ${error.message}`;
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = 'Cadastrar';
+    }
+});
+
+// Alternância de senha: garantir funcionamento após o DOM
+document.addEventListener('DOMContentLoaded', function () {
+  var togglePassword = document.getElementById('togglePassword');
+  var toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+  if (togglePassword) {
+    togglePassword.addEventListener('click', function () {
+      var passwordInput = document.getElementById('password');
+      var icon = this.querySelector('i');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  }
+  if (toggleConfirmPassword) {
+    toggleConfirmPassword.addEventListener('click', function () {
+      var confirmInput = document.getElementById('confirmPassword');
+      var icon = this.querySelector('i');
+      if (confirmInput.type === 'password') {
+        confirmInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        confirmInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>

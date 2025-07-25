@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - NextLevel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="h-16 flex items-center justify-center bg-primary text-white">
+                <h1 class="text-xl font-bold">Admin NextLevel</h1>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+                <a href="#quiz" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"><i class="fas fa-question-circle mr-2"></i>Quiz</a>
+                <a href="#ranking" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"><i class="fas fa-trophy mr-2"></i>Ranking</a>
+                <a href="#materiais" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium"><i class="fas fa-book mr-2"></i>Materiais</a>
+            </nav>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto">
+            <!-- Quiz Management -->
+            <section id="quiz" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Gerenciar Perguntas do Quiz</h2>
+                <form id="form-pergunta" class="mb-6 flex flex-col md:flex-row gap-4">
+                    <input type="text" id="pergunta" class="flex-1 border rounded px-3 py-2" placeholder="Pergunta" required>
+                    <input type="text" id="opcoes" class="flex-1 border rounded px-3 py-2" placeholder="Opções (separe por vírgula)" required>
+                    <input type="text" id="resposta" class="flex-1 border rounded px-3 py-2" placeholder="Resposta correta" required>
+                    <button type="submit" class="bg-primary text-white px-4 py-2 rounded font-bold" aria-label="Adicionar pergunta ao quiz">Adicionar</button>
+                </form>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded shadow">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2">Pergunta</th>
+                                <th class="px-4 py-2">Opções</th>
+                                <th class="px-4 py-2">Resposta</th>
+                                <th class="px-4 py-2">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quiz-tbody">
+                            <!-- Perguntas serão inseridas aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Ranking -->
+            <section id="ranking" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Ranking de Alunos</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded shadow">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2">#</th>
+                                <th class="px-4 py-2">Nome</th>
+                                <th class="px-4 py-2">Pontos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-tbody">
+                            <!-- Ranking será inserido aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Materiais -->
+        <!-- Usuários -->
+        <section id="usuarios" class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">Usuários Cadastrados</h2>
+            <button id="btn-atualizar-usuarios" class="mb-4 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition" aria-label="Atualizar lista de usuários">Atualizar lista</button>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded shadow">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2">Nome</th>
+                            <th class="px-4 py-2">E-mail</th>
+                            <th class="px-4 py-2">Status</th>
+                            <th class="px-4 py-2">Criado em</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody">
+                        <!-- Usuários serão inseridos aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+            <section id="materiais">
+                <h2 class="text-2xl font-bold mb-4">Materiais</h2>
+                <form id="form-material" class="mb-6 flex flex-col md:flex-row gap-4">
+                    <input type="text" id="titulo-material" class="flex-1 border rounded px-3 py-2" placeholder="Título do material" required>
+                    <input type="url" id="link-material" class="flex-1 border rounded px-3 py-2" placeholder="Link do material" required>
+                    <button type="submit" class="bg-primary text-white px-4 py-2 rounded font-bold" aria-label="Adicionar material">Adicionar</button>
+                </form>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded shadow">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2">Título</th>
+                                <th class="px-4 py-2">Link</th>
+                                <th class="px-4 py-2">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="materiais-tbody">
+                            <!-- Materiais serão inseridos aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+    // Exemplo de preenchimento estático:
+    document.getElementById('quiz-tbody').innerHTML = `<tr><td>Exemplo: What is 2+2?</td><td>2,3,4,5</td><td>4</td><td><button class='text-red-500' aria-label='Excluir pergunta'>Excluir</button></td></tr>`;
+    document.getElementById('ranking-tbody').innerHTML = `<tr><td>1</td><td>João Silva</td><td>98</td></tr><tr><td>2</td><td>Maria Souza</td><td>95</td></tr>`;
+    document.getElementById('materiais-tbody').innerHTML = `<tr><td>Material Exemplo</td><td><a href='#' class='text-blue-500 underline'>Ver</a></td><td><button class='text-red-500' aria-label='Excluir material'>Excluir</button></td></tr>`;
+
+    // --- Listagem dinâmica de usuários do Firestore ---
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+    // Use a mesma configuração do seu projeto
+    const firebaseConfig = {
+      apiKey: "AIzaSyBQvSCPhhx31Za15h6jO0pd5Z3VnHVtxRk",
+      authDomain: "nextlevelai-83a72.firebaseapp.com",
+      projectId: "nextlevelai-83a72",
+      storageBucket: "nextlevelai-83a72.appspot.com",
+      messagingSenderId: "102654499610",
+      appId: "1:102654499610:web:10eab2aec478044367eaa3",
+      measurementId: "G-XS06KT70EC"
+    };
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function carregarUsuarios() {
+        const usuariosTbody = document.getElementById('usuarios-tbody');
+        usuariosTbody.innerHTML = '<tr><td colspan="4" class="text-center py-4">Carregando...</td></tr>';
+        try {
+            const usuariosCol = collection(db, 'usuarios');
+            const usuariosSnapshot = await getDocs(usuariosCol);
+            const usuarios = usuariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            if (usuarios.length === 0) {
+                usuariosTbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-yellow-600">Nenhum usuário cadastrado encontrado.</td></tr>';
+            } else {
+                usuariosTbody.innerHTML = usuarios.map(u => `
+                    <tr>
+                        <td class="px-4 py-2">${u.nomeCompleto || '-'}</td>
+                        <td class="px-4 py-2">${u.email || '-'}</td>
+                        <td class="px-4 py-2">${u.status || '-'}</td>
+                        <td class="px-4 py-2">${u.criadoEm ? new Date(u.criadoEm).toLocaleString('pt-BR') : '-'}</td>
+                    </tr>
+                `).join('');
+            }
+        } catch (e) {
+            usuariosTbody.innerHTML = `<tr><td colspan='4' class='text-center py-4 text-red-600'>Erro ao consultar usuários: ${e.message || e}</td></tr>`;
+        }
+    }
+
+    document.getElementById('btn-atualizar-usuarios').addEventListener('click', carregarUsuarios);
+    // Carrega ao abrir a página
+    carregarUsuarios();
+    </script>
+</body>
+</html>

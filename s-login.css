@@ -1,0 +1,46 @@
+.gradient-text {
+            background: linear-gradient(90deg, #2563eb 0%, #60a5fa 50%, #3b4cca 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .input-focus:focus {
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5);
+        }
+        .btn-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(96, 165, 250, 0.2);
+        }
+        /* Fundo e botões do login no padrão azul */
+        body.login-bg {
+            background: linear-gradient(135deg, #232946 0%, #60a5fa 100%);
+        }
+        .login-container {
+            background: rgba(96, 165, 250, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(35, 41, 70, 0.3);
+            color: #232946;
+        }
+        .login-input {
+            background: #232946;
+            border: 2px solid #60a5fa;
+            color: #fff;
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .login-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px #60a5fa;
+        }
+        .login-btn {
+            background: #2563eb;
+            color: #fff;
+            border-radius: 8px;
+            padding: 10px 20px;
+            border: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .login-btn:hover {
+            background: #1e40af;
+        }

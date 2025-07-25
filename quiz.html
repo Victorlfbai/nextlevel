@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz -quiz</title>
+    <link rel="stylesheet" href="estilio.css">
+    <!-- Font Awesome e Orbitron para o botão Voltar -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-[#232946] text-white">
+    <!-- Botão Voltar igual ao formulário -->
+    <a href="index.html" class="voltar-btn fixed" style="top: 180px; left: 1rem; font-family: 'Orbitron', sans-serif;">
+        <i class="fas fa-arrow-left mr-1"></i> Voltar
+    </a>
+    <div class="quiz-container bg-[#60a5fa] bg-opacity-95 rounded-xl p-8 shadow-xl backdrop-blur-sm max-w-2xl mx-auto mt-20">
+        <h1>Quiz </h1>
+        <div id="quiz">
+            <p id="pergunta"></p>
+            <div id="opcoes"></div>
+            <button onclick="proximaPergunta()" aria-label="Próxima pergunta">Próxima</button>
+        </div>
+        <div id="resultado" class="hidden">
+            <h2>Resultado Final</h2>
+            <p id="mensagem"></p>
+            <button onclick="reiniciarQuiz()" aria-label="Jogar novamente">Jogar Novamente</button>
+        </div>
+    </div>
+    <audio id="errouSound" src="midia/errou.mp3"></audio> <!-- Tocar ao errar questão -->
+    <audio id="successSound" src="midia/animal.mp3"></audio> <!-- Música do final -->
+    <audio id="acertouSound" src="midia/acertou.mp3"></audio> <!--Tocar ao acertar questão-->
+
+   
+<script>
+const perguntas = [
+    {
+        pergunta: "What is the plural of “box”?",
+        opcoes: ["boxs", "boxes", "boxies", "boxen"],
+        resposta: "boxes"
+    },
+    {
+        pergunta: "Choose the correct verb to complete the sentence:“She ___ to school every day.” ",
+        opcoes: ["go", "going", "goes", "goed"],
+        resposta: "goes"
+    },
+    {
+        pergunta: "Which word is a color?",
+        opcoes: ["happy", "cat", "yellow", "swim"],
+        resposta: "yellow"
+    },
+    {
+        pergunta: "What is the opposite of “hot”?",
+        opcoes: ["cold", "small", "tall", "fast"],
+        resposta: "cold"
+    },
+    {
+        pergunta: "Choose the correct greeting for the morning:",
+        opcoes: ["Good night", "Good morning", "Good afternoon", "Goodbye"],
+        resposta: "Good morning"
+    },
+    {
+        pergunta: "Which sentence is in the present continuous (ação acontecendo agora)?",
+        opcoes: ["I eat an apple.", "I will eat an apple.", "I ate an apple.", "I am eating an apple."],
+        resposta: "I am eating an apple."
+    },
+    {
+        pergunta: "How do you spell the number 5?",
+        opcoes: ["five", "fife", "cinq", "fiive"],
+        resposta: "five"
+    }
+];
+
+let indiceAtual = 0;
+let acertos = 0;
+let respostaSelecionada = "";
+
+function carregarPergunta() {
+    const perguntaAtual = perguntas[indiceAtual];
+    document.getElementById("pergunta").textContent = perguntaAtual.pergunta;
+
+    const opcoesContainer = document.getElementById("opcoes");
+    opcoesContainer.innerHTML = "";
+    respostaSelecionada = "";
+
+    perguntaAtual.opcoes.forEach(opcao => {
+        const botao = document.createElement("button");
+        botao.textContent = opcao;
+        botao.classList.add("opcao");
+        botao.onclick = () => {
+            // Resetar estilos
+            const botoes = document.querySelectorAll(".opcao");
+            botoes.forEach(b => b.style.backgroundColor = "#ffffff");
+
+            // Marcar como selecionado
+            botao.style.backgroundColor = "#ffcc00";
+            respostaSelecionada = opcao;
+        };
+        opcoesContainer.appendChild(botao);
+    });
+}
+
+function proximaPergunta() {
+    if (respostaSelecionada === "") {
+        alert("Por favor, selecione uma resposta antes de continuar.");
+        return;
+    }
+
+    const perguntaAtual = perguntas[indiceAtual];
+    if (respostaSelecionada === perguntaAtual.resposta) {
+        acertos++;
+
+    if (respostaSelecionada === perguntaAtual.resposta) {
+        document.getElementById("acertouSound").play();
+    }
+    } else {
+        // Tocar som de erro
+        document.getElementById("errouSound").play();
+
+    }
+
+    indiceAtual++;
+    if (indiceAtual < perguntas.length) {
+        carregarPergunta();
+    } else {
+        mostrarResultado();
+    }
+}
+
+function mostrarResultado() {
+    document.getElementById("quiz").classList.add("hidden");
+    document.getElementById("resultado").classList.remove("hidden");
+
+    let total = perguntas.length;
+    let erros = total - acertos;
+    
+    document.getElementById("mensagem").innerHTML = `
+        Você acertou <strong>${acertos}</strong> de ${total} perguntas!<br>
+        Você errou <strong>${erros}</strong>.
+    `;
+
+    // Tocar música final
+    document.getElementById("successSound").play();
+
+
+}
+
+function reiniciarQuiz() {
+    indiceAtual = 0;
+    acertos = 0;
+    document.getElementById("resultado").classList.add("hidden");
+    document.getElementById("quiz").classList.remove("hidden");
+    carregarPergunta();
+    
+}
+
+carregarPergunta();
+</script>
+</body>
+
+
+</html>

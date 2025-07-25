@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasil.IA - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="s-login.css">
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center p-4">
+    <!-- Botão Voltar para Home -->
+    <a href="index.html" class="voltar-btn fixed top-6 left-6 z-50 flex items-center gap-2 bg-[#2563eb] text-white px-4 py-2 rounded-full shadow-lg hover:bg-[#1e40af] transition duration-300">
+        <i class="fas fa-arrow-left"></i>
+        Voltar
+    </a>
+    <div class="w-full max-w-md">
+        <div class="text-center mb-10">
+            <h1 class="text-5xl font-bold mb-2" style="font-family: 'Orbitron', sans-serif;">
+                <span class="gradient-text">
+                    <span class="text-white">NextLevel</span>
+                </span>
+            </h1>
+            <p class="text-[#60a5fa] font-medium" style="font-family: 'Orbitron', sans-serif;">powered by ai, driven by you</p>
+        </div>
+
+        <div class="login-container bg-white rounded-xl shadow-2xl overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-center mb-6">
+                    <div class="bg-[#60a5fa] p-4 rounded-full">
+                        <i class="fas fa-user-lock text-[#232946] text-3xl"></i>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-center text-[#232946] mb-6">Acesse sua conta</h2>
+                <form>
+                    <div class="mb-5">
+                        <label for="email" class="block text-[#232946] font-medium mb-2">E-mail</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-envelope text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="login-input w-full pl-10 pr-4 py-3 transition duration-300" 
+                                placeholder="seu@email.com"
+                                required
+                            >
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="password" class="block text-[#232946] font-medium mb-2">Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i class="fas fa-lock text-[#2563eb]"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="login-input w-full pl-10 pr-10 py-3 transition duration-300" 
+                                placeholder="••••••••"
+                                required
+                            >
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" id="togglePassword">
+                                <i class="fas fa-eye text-[#2563eb] hover:text-[#3b4cca] cursor-pointer"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="remember" 
+                                class="h-4 w-4 text-[#2563eb] focus:ring-[#60a5fa] border-[#60a5fa] rounded"
+                            >
+                            <label for="remember" class="ml-2 block text-sm text-[#232946]">Lembrar-me</label>
+                        </div>
+                        <a href="#" class="text-sm text-[#2563eb] hover:text-[#3b4cca] font-medium">Esqueceu a senha?</a>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="login-btn w-full font-bold py-3 px-4 transition duration-300 btn-hover"
+                        aria-label="Entrar na conta"
+                    >
+                        Entrar
+                    </button>
+                    <div class="my-6 flex items-center justify-center">
+                        <span class="h-px flex-1 bg-gray-300"></span>
+                        <span class="mx-4 text-gray-400 text-sm">ou</span>
+                        <span class="h-px flex-1 bg-gray-300"></span>
+                    </div>
+                    <button type="button" id="btn-google" class="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-3 px-4 font-bold text-[#232946] bg-white hover:bg-gray-50 transition duration-200" aria-label="Entrar com Google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" class="w-5 h-5">
+                        Entrar com Google
+                    </button>
+                </form>
+            </div>
+            <div class="bg-[#3b4cca] px-8 py-4 text-center">
+                <p class="text-[#232946] text-sm">
+                    Não tem uma conta? 
+                    <a href="cadastro.html" class="text-[#2563eb] font-medium hover:text-[#3b4cca]">Cadastre-se</a>
+                </p>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+            <p class="text-[#60a5fa] text-sm">
+                © 2023 Brasil.IA - Todos os direitos reservados
+            </p>
+            <button id="criar-admin" class="mt-4 text-xs text-blue-500 underline" aria-label="Criar usuário admin para desenvolvimento">Criar usuário admin (dev)</button>
+        </div>
+    </div>
+
+    <script>
+        // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getFirestore, collection, query, where, doc, updateDoc, onSnapshot, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBQvSCPhhx31Za15h6jO0pd5Z3VnHVtxRk",
+  authDomain: "nextlevelai-83a72.firebaseapp.com",
+  projectId: "nextlevelai-83a72",
+  storageBucket: "nextlevelai-83a72.appspot.com", // corrigido
+  messagingSenderId: "102654499610",
+  appId: "1:102654499610:web:10eab2aec478044367eaa3",
+  measurementId: "G-XS06KT70EC"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+        // Mensagem de feedback
+        let areaMensagem = document.getElementById('area-mensagem');
+        if (!areaMensagem) {
+            areaMensagem = document.createElement('div');
+            areaMensagem.id = 'area-mensagem';
+            areaMensagem.className = 'text-center text-sm my-4';
+            document.querySelector('.login-container .p-8').prepend(areaMensagem);
+        }
+
+        // Login com Firebase (email/senha)
+        import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { setDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            areaMensagem.textContent = '';
+            if (!email || !password) {
+                areaMensagem.textContent = 'Por favor, preencha todos os campos!';
+                areaMensagem.className = 'text-center text-red-500 my-4';
+                return;
+            }
+            try {
+                areaMensagem.textContent = 'Entrando...';
+                areaMensagem.className = 'text-center text-gray-500 my-4';
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                areaMensagem.textContent = 'Login realizado com sucesso! Redirecionando...';
+                areaMensagem.className = 'text-center text-green-600 my-4';
+                setTimeout(() => {
+                    // Se o e-mail for de admin, vai para admin.html, senão dashboard.html
+                    if (email.toLowerCase() === 'admin@nextlevel.com') {
+                        window.location.href = 'admin.html';
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 1200);
+            } catch (error) {
+                areaMensagem.textContent = 'Erro: ' + (error.message || 'Não foi possível fazer login.');
+                areaMensagem.className = 'text-center text-red-500 my-4';
+            }
+        });
+
+        // Login com Google
+        document.getElementById('btn-google').addEventListener('click', async function() {
+            areaMensagem.textContent = '';
+            const provider = new GoogleAuthProvider();
+            try {
+                areaMensagem.textContent = 'Entrando com Google...';
+                areaMensagem.className = 'text-center text-gray-500 my-4';
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                // Verifica se já existe documento do usuário no Firestore
+                const userDocRef = doc(db, 'usuarios', user.uid);
+                const userDocSnap = await getDoc(userDocRef);
+                if (!userDocSnap.exists()) {
+                    // Cria documento com dados básicos
+                    await setDoc(userDocRef, {
+                        nomeCompleto: user.displayName || '',
+                        email: user.email,
+                        status: 'pending',
+                        criadoEm: new Date().toISOString(),
+                        descritorFacial: null
+                    });
+                }
+                areaMensagem.textContent = 'Login com Google realizado! Redirecionando...';
+                areaMensagem.className = 'text-center text-green-600 my-4';
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1200);
+            } catch (error) {
+                areaMensagem.textContent = 'Erro: ' + (error.message || 'Não foi possível fazer login com Google.');
+                areaMensagem.className = 'text-center text-red-500 my-4';
+            }
+        });
+
+        // Toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+
+        // Botão para criar usuário admin (apenas para dev/teste)
+        document.getElementById('criar-admin').addEventListener('click', async function() {
+            try {
+                const { createUserWithEmailAndPassword } = await import('https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js');
+                await createUserWithEmailAndPassword(auth, 'admin@nextlevel.com', 'admin123');
+                areaMensagem.textContent = 'Usuário admin@nextlevel.com criado com senha admin123!';
+                areaMensagem.className = 'text-center text-green-600 my-4';
+            } catch (e) {
+                areaMensagem.textContent = 'Erro ao criar admin: ' + (e.message || e);
+                areaMensagem.className = 'text-center text-red-500 my-4';
+            }
+        });
+    </script>
+</body>
+</html>

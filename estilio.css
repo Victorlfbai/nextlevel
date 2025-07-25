@@ -1,0 +1,118 @@
+/* estilio.css */
+
+/* 1. Reset básico e corpo ocupando toda a tela */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background: linear-gradient(135deg, #232946 0%, #60a5fa 100%);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+
+}
+
+
+/* 3. Container do quiz centralizado */
+.quiz-container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(96, 165, 250, 0.95); /* azul claro, igual ao html */
+    border: 3px solid rgba(35, 41, 70, 0.3); /* borda azul escuro sutil */
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    color: #232946; /* texto escuro para contraste */
+    text-align: center;
+}
+
+/* 4. Título do quiz */
+.quiz-container h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+/* 5. Pergunta e opções */
+#pergunta {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+}
+
+#opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.opcao {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.opcao:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 6. Botões de ação */
+button {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 7. Área de resultado inicialmente oculta */
+.hidden {
+    display: none;
+}
+
+/* Botão Voltar igual à caixa do quiz */
+.voltar-btn {
+    background: rgba(96, 165, 250, 0.95); /* azul claro igual à caixa */
+    color: #232946;
+    border: 2px solid rgba(35, 41, 70, 0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 6px 18px;
+    transition: background 0.2s, color 0.2s;
+    margin-top: 0.5rem; /* ajuste fino se necessário */
+}
+
+@media (min-width: 640px) {
+    .voltar-btn {
+        margin-top: 1rem;
+    }
+}
+
+.voltar-btn:hover {
+    background: #fff;
+    color: #3b4cca;
+    border-color: #3b4cca;
+}

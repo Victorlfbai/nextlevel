@@ -1,0 +1,16 @@
+  .gradient-bg {
+        background: linear-gradient(135deg, var(--dark-blue) 0%, #d1d1d1 100%);
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(42,67,101,0.18);
+        }
+        .custom-radio:checked {
+            background-color: var(--dark-blue);
+        }
+        .custom-checkbox:checked {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+        
+        
