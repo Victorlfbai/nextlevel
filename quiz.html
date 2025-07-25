@@ -30,7 +30,6 @@
     <audio id="errouSound" src="midia/errou.mp3"></audio> <!-- Tocar ao errar questão -->
     <audio id="successSound" src="midia/animal.mp3"></audio> <!-- Música do final -->
     <audio id="acertouSound" src="midia/acertou.mp3"></audio> <!--Tocar ao acertar questão-->
-
    
 <script>
 const perguntas = [
@@ -70,19 +69,15 @@ const perguntas = [
         resposta: "five"
     }
 ];
-
 let indiceAtual = 0;
 let acertos = 0;
 let respostaSelecionada = "";
-
 function carregarPergunta() {
     const perguntaAtual = perguntas[indiceAtual];
     document.getElementById("pergunta").textContent = perguntaAtual.pergunta;
-
     const opcoesContainer = document.getElementById("opcoes");
     opcoesContainer.innerHTML = "";
     respostaSelecionada = "";
-
     perguntaAtual.opcoes.forEach(opcao => {
         const botao = document.createElement("button");
         botao.textContent = opcao;
@@ -91,7 +86,6 @@ function carregarPergunta() {
             // Resetar estilos
             const botoes = document.querySelectorAll(".opcao");
             botoes.forEach(b => b.style.backgroundColor = "#ffffff");
-
             // Marcar como selecionado
             botao.style.backgroundColor = "#ffcc00";
             respostaSelecionada = opcao;
@@ -99,26 +93,20 @@ function carregarPergunta() {
         opcoesContainer.appendChild(botao);
     });
 }
-
 function proximaPergunta() {
     if (respostaSelecionada === "") {
         alert("Por favor, selecione uma resposta antes de continuar.");
         return;
     }
-
     const perguntaAtual = perguntas[indiceAtual];
     if (respostaSelecionada === perguntaAtual.resposta) {
         acertos++;
-
-    if (respostaSelecionada === perguntaAtual.resposta) {
+        // Tocar som de acerto
         document.getElementById("acertouSound").play();
-    }
     } else {
         // Tocar som de erro
         document.getElementById("errouSound").play();
-
     }
-
     indiceAtual++;
     if (indiceAtual < perguntas.length) {
         carregarPergunta();
@@ -126,11 +114,9 @@ function proximaPergunta() {
         mostrarResultado();
     }
 }
-
 function mostrarResultado() {
     document.getElementById("quiz").classList.add("hidden");
     document.getElementById("resultado").classList.remove("hidden");
-
     let total = perguntas.length;
     let erros = total - acertos;
     
@@ -138,25 +124,29 @@ function mostrarResultado() {
         Você acertou <strong>${acertos}</strong> de ${total} perguntas!<br>
         Você errou <strong>${erros}</strong>.
     `;
-
     // Tocar música final
     document.getElementById("successSound").play();
-
-
 }
-
 function reiniciarQuiz() {
+    // Parar todos os sons
+    const sounds = ["errouSound", "successSound", "acertouSound"];
+    sounds.forEach(soundId => {
+        const sound = document.getElementById(soundId);
+        sound.pause();
+        sound.currentTime = 0;
+    });
+    // Resetar variáveis
     indiceAtual = 0;
     acertos = 0;
+    
+    // Ocultar resultado e mostrar quiz
     document.getElementById("resultado").classList.add("hidden");
     document.getElementById("quiz").classList.remove("hidden");
-    carregarPergunta();
     
+    // Recarregar a primeira pergunta
+    carregarPergunta();
 }
-
 carregarPergunta();
 </script>
 </body>
-
-
 </html>
